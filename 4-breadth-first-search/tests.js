@@ -12,7 +12,8 @@ var ex0 = {
   'h': ['i'],
   'i': ['k'],
   'j': ['k'],
-  'k': []
+  'k': [],
+  'm': []
 }
 
 var ex1 = {
@@ -28,5 +29,7 @@ var ex1 = {
   10: []
 }
 
-bfs(ex0, 'a', 'k');
-bfs(ex1, 1, 10);
+assert.deepEqual(bfs(ex0, 'a', 'k'), ['a', 'f', 'j', 'k']);
+assert.deepEqual(bfs(ex1, 1, 10), [1, 6, 9, 10]);
+assert.deepEqual(bfs(ex0, 'a', 'a'), ['a']);
+assert.deepEqual(bfs(ex0, 'a', 'm'), []);

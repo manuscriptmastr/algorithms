@@ -2,9 +2,11 @@ module.exports = function bfs(graphObject, start, end) {
   var visited = [];
   var frontier = [start];
   var parentTree = {};
+  var found = false;
   while (frontier.length > 0) {
     var current = frontier.shift();
     if (current === end) {
+      found = true;
       break;
     }
     var neighbors = graphObject[current];
@@ -18,6 +20,10 @@ module.exports = function bfs(graphObject, start, end) {
     }
   }
 
+  if (!found) {
+    return [];
+  }
+
   var bestPath = [];
   var node = end;
   while (node !== start) {
@@ -26,5 +32,5 @@ module.exports = function bfs(graphObject, start, end) {
     node = parent;
   }
   bestPath.unshift(node);
-  console.log(bestPath);
+  return bestPath;
 }

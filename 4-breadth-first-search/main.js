@@ -17,5 +17,14 @@ module.exports = function bfs(graphObject, start, end) {
       }
     }
   }
-  
+
+  var bestPath = [];
+  var node = end;
+  while (node !== start) {
+    bestPath.unshift(node);
+    var parent = parentTree[node];
+    node = parent;
+  }
+  bestPath.unshift(node);
+  console.log(bestPath);
 }
